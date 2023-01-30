@@ -1,5 +1,5 @@
 import { Recipes } from './../recipe.modal';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-recipe-list',
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./recipe-list.component.css'],
 })
 export class RecipeListComponent {
+  @Output() recipeDetail = new EventEmitter<Recipes>();
   public recipes: Recipes[] = [
     new Recipes(
       'Indian Recipe',
@@ -19,4 +20,8 @@ export class RecipeListComponent {
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTBse7B4urhEjty-C5owz4uP5AtYdRi744grG9cKGvLg&s'
     ),
   ];
+
+  onRecipeSelected(recipe: Recipes) {
+    this.recipeDetail.emit(recipe);
+  }
 }

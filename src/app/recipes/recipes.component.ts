@@ -1,3 +1,4 @@
+import { Recipes } from './recipe.modal';
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
@@ -6,5 +7,5 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./recipes.component.css'],
 })
 export class RecipesComponent {
- 
+  selectedRecipe!: Recipes;
 }

@@ -3,7 +3,14 @@
     <app-shopping-edite></app-shopping-edite>
     <hr />
     <ul class="list-group">
-      <a href="#" class="list-group-item" style="cursor: pointer"></a>
+      <a
+        href="#"
+        class="list-group-item"
+        style="cursor: pointer"
+        *ngFor="let ingredients of ingredients"
+      >
+        {{ ingredients?.name }} : ({{ ingredients?.amount }})
+      </a>
     </ul>
   </div>
 </div>

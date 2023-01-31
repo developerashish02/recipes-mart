@@ -10,7 +10,6 @@ import { outputAst } from '@angular/compiler';
 export class RecipeItemComponent {
   @Input() recipes!: Recipes;
   @Output() recipeSelected = new EventEmitter<void>();
-
   onSelectedRecipe() {
     this.recipeSelected.emit();
   }

@@ -1,5 +1,6 @@
+import { RecipeService } from './../../../service/recipes/recipe.service';
 import { Recipes } from './../../recipe.modal';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { outputAst } from '@angular/compiler';
 
 @Component({
@@ -8,9 +9,10 @@ import { outputAst } from '@angular/compiler';
   styleUrls: ['./recipe-item.component.css'],
 })
 export class RecipeItemComponent {
+  constructor(private recipeService: RecipeService) {}
+
   @Input() recipes!: Recipes;
-  @Output() recipeSelected = new EventEmitter<void>();
   onSelectedRecipe() {
-    this.recipeSelected.emit();
+    this.recipeService.recipeSelected.emit(this.recipes);
   }
 }
